@@ -1,0 +1,2152 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Tubarão — Restaurante de Peixe e Marisco | Matosinhos</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M3 32C3 32 8 24 16 20C24 16 36 14 48 13C56 13 62 15 66 18L70 14L76 8L75 16L73 22L76 24L78 26L74 25L70 24C68 28 62 36 50 40C38 42 26 41 18 38C10 35 5 33 3 32Z' fill='%235B8BA0'/%3E%3Cpath d='M16 20C24 16 36 14 48 13C56 13 62 15 66 18L70 14L76 8L75 16L73 22L70 24C68 18 62 15 56 14C48 13 36 14 24 17Z' fill='%233D6B82'/%3E%3Cpath d='M3 32C5 35 10 38 18 40C26 42 38 43 50 40L48 38C38 42 24 41 16 38C10 36 6 33 4 32Z' fill='%23D0DEE8'/%3E%3Cpath d='M40 14L36 4L46 12Z' fill='%235B8BA0'/%3E%3Cpath d='M5 32L16 22L10 28Z' fill='%235B8BA0'/%3E%3Cpath d='M5 32L16 22L18 20L15 27L10 32L7 33Z' fill='%238B3A3A' opacity='0.7'/%3E%3Cpath d='M8 26L6 32L11 26Z' fill='%23EEF4F8'/%3E%3Cpath d='M12 24L9 30L15 24Z' fill='%23EEF4F8'/%3E%3Cpath d='M16 22L14 28L19 22Z' fill='%23EEF4F8'/%3E%3Cpath d='M7 33L9 28L11 34Z' fill='%23EEF4F8' opacity='0.9'/%3E%3Cpath d='M11 34L13 28L15 34Z' fill='%23EEF4F8' opacity='0.9'/%3E%3Ccircle cx='28' cy='22' r='2.5' fill='%230D1B2A'/%3E%3C/svg%3E">
+    <meta name="description" content="O Tubarão — Restaurante de peixe fresco grelhado e marisco de qualidade em Matosinhos. Tradição, frescura e sabor genuíno.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #F7FBFF;
+            --warm-beige: #EBF2F8;
+            --sand: #D4E0EC;
+            --terracotta: #1A6B8A;
+            --terracotta-dark: #114E68;
+            --gold: #C49A6C;
+            --gold-light: #D4B896;
+            --dark-brown: #0D1B2A;
+            --deep-brown: #091420;
+            --olive-brown: #1B3A4B;
+            --text-dark: #0D1B2A;
+            --text-muted: #4A6274;
+            --text-light: #7A97AB;
+            --white: #FFFFFF;
+        }
+
+        html {
+            /* scroll-behavior handled via JS for offset control */
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: var(--cream);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        ::selection {
+            background: var(--terracotta);
+            color: var(--white);
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 3px;
+        }
+
+        /* ========== GRAIN OVERLAY ========== */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 200px;
+        }
+
+        /* ========== NAVBAR ========== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.25rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .navbar.scrolled {
+            background: rgba(9, 20, 32, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.75rem 2rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .nav-logo-shark {
+            width: 3.8rem;
+            height: auto;
+            display: inline-block;
+            transition: all 0.5s ease;
+            animation: sharkSwim 4s ease-in-out infinite;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        @keyframes sharkSwim {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            25% { transform: translateX(3px) translateY(-2px); }
+            50% { transform: translateX(0) translateY(1px); }
+            75% { transform: translateX(-3px) translateY(-1px); }
+        }
+
+        .navbar.scrolled .nav-logo-shark {
+            width: 3rem;
+        }
+
+        .nav-logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--cream);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--cream);
+            position: relative;
+            padding-bottom: 4px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-light);
+        }
+
+        .nav-cta {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.75rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 2px !important;
+            text-transform: uppercase;
+            color: var(--cream) !important;
+            border: 1px solid var(--gold);
+            padding: 0.6rem 1.5rem !important;
+            transition: all 0.4s ease !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold);
+            color: var(--deep-brown) !important;
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 8px;
+            background: none;
+            border: none;
+            outline: none;
+        }
+
+        .menu-toggle span {
+            width: 26px;
+            height: 2px;
+            background: var(--cream);
+            transition: all 0.4s ease;
+            transform-origin: center;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background: var(--deep-brown);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+            transition: right 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .mobile-nav.open {
+            right: 0;
+        }
+
+        .mobile-nav a {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--cream);
+            letter-spacing: 2px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+        }
+
+        .mobile-nav.open a {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-nav.open a:nth-child(1) { transition-delay: 0.15s; }
+        .mobile-nav.open a:nth-child(2) { transition-delay: 0.25s; }
+        .mobile-nav.open a:nth-child(3) { transition-delay: 0.35s; }
+        .mobile-nav.open a:nth-child(4) { transition-delay: 0.45s; }
+        .mobile-nav.open a:nth-child(5) { transition-delay: 0.55s; }
+
+        /* ========== HERO ========== */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            background-image: url('https://images.unsplash.com/photo-1766393305879-96093c91c0ca?q=80&w=2574&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center 30%;
+            will-change: transform;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                180deg,
+                rgba(9, 20, 32, 0.50) 0%,
+                rgba(9, 20, 32, 0.35) 40%,
+                rgba(9, 20, 32, 0.55) 70%,
+                rgba(9, 20, 32, 0.88) 100%
+            );
+        }
+
+        .hero-vignette {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 2rem;
+            max-width: 900px;
+        }
+
+        .hero-est {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: heroFadeUp 1s 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6.5rem);
+            font-weight: 700;
+            color: var(--cream);
+            line-height: 1;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 30px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            transform: translateY(40px);
+            animation: heroFadeUp 1.2s 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .hero-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            font-weight: 700;
+            font-style: italic;
+            color: var(--gold-light);
+            letter-spacing: 1px;
+            margin-bottom: 2.5rem;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: heroFadeUp 1s 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .hero-divider {
+            width: 60px;
+            height: 1px;
+            background: var(--gold);
+            margin: 0 auto 2.5rem;
+            opacity: 0;
+            animation: heroFadeUp 1s 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .hero-tagline {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: rgba(255, 253, 247, 0.7);
+            letter-spacing: 1px;
+            max-width: 500px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: heroFadeUp 1s 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--cream);
+            border: 1px solid var(--gold);
+            padding: 1rem 3rem;
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: heroFadeUp 1s 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .hero-btn:hover {
+            background: var(--gold);
+            color: var(--deep-brown);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(196, 154, 108, 0.3);
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: fit-content;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0;
+            animation: heroFadeUp 1s 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .hero-scroll span {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+        }
+
+        .hero-scroll-line {
+            width: 1px;
+            height: 40px;
+            background: var(--gold);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes heroFadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+            50% { opacity: 1; transform: scaleY(1); }
+        }
+
+        /* ========== SECTION COMMONS ========== */
+        .section {
+            padding: 7rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        .section-title.light {
+            color: var(--cream);
+        }
+
+        .section-divider {
+            width: 40px;
+            height: 1px;
+            background: var(--gold);
+            margin: 1.5rem auto 0;
+        }
+
+        /* ========== ABOUT ========== */
+        .about {
+            background: var(--cream);
+            position: relative;
+        }
+
+        .about-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image-wrap {
+            position: relative;
+        }
+
+        .about-image-wrap::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--gold);
+            z-index: 0;
+        }
+
+        .about-image {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+        }
+
+        .about-text {
+            padding: 1rem 0;
+        }
+
+        .about-text .section-label,
+        .about-text .section-title {
+            text-align: left;
+        }
+
+        .about-text .section-divider {
+            margin: 1.5rem 0 0;
+        }
+
+        .about-description {
+            margin-top: 2rem;
+        }
+
+        .about-description p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-description p:first-child::first-letter {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            float: left;
+            line-height: 1;
+            margin-right: 0.5rem;
+            margin-top: 0.1rem;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .about-year {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        .about-year::before {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        /* ========== MENU ========== */
+        .menu {
+            background: var(--deep-brown);
+            position: relative;
+        }
+
+        .menu::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C49A6C' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .menu .section-label {
+            color: var(--gold-light);
+        }
+
+        .menu-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3.5rem;
+            flex-wrap: wrap;
+        }
+
+        .menu-cat-btn {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--text-light);
+            background: none;
+            border: 1px solid rgba(196, 154, 108, 0.2);
+            padding: 0.6rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .menu-cat-btn.active,
+        .menu-cat-btn:hover {
+            color: var(--cream);
+            border-color: var(--gold);
+            background: rgba(196, 154, 108, 0.1);
+        }
+
+        .menu-category {
+            display: none;
+        }
+
+        .menu-category.active {
+            display: block;
+            animation: fadeInMenu 0.5s ease;
+        }
+
+        @keyframes fadeInMenu {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid rgba(196, 154, 108, 0.1);
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item-info {
+            flex: 1;
+            padding-right: 2rem;
+        }
+
+        .menu-item-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--cream);
+            margin-bottom: 0.3rem;
+        }
+
+        .menu-item-desc {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .menu-item-price {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--gold);
+            white-space: nowrap;
+            letter-spacing: 0.5px;
+        }
+
+        .menu-note {
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--text-light);
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(196, 154, 108, 0.15);
+        }
+
+        /* ========== GALLERY ========== */
+        .gallery {
+            background: var(--warm-beige);
+            overflow: hidden;
+        }
+
+        .gallery-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 250px);
+            gap: 0.75rem;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 60%, rgba(9, 20, 32, 0.3) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        /* ========== RESERVATIONS ========== */
+        .reservations {
+            background: var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reservations-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .reservations-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 2.5rem;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .reservations-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .reservations .section-label {
+            margin-bottom: 1.25rem;
+        }
+
+        .reservations .section-title {
+            margin-bottom: 0.5rem;
+        }
+
+        .reservations .section-divider {
+            margin-bottom: 3rem;
+        }
+
+        .reservations-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            max-width: 500px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .reservations-phone {
+            display: block;
+            font-family: Arial, sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 700;
+            color: var(--terracotta);
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+
+        .reservations-phone:hover {
+            color: var(--terracotta-dark);
+        }
+
+        .reservations-hours {
+            margin-top: 3.5rem;
+            max-width: 420px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hours-title {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--sand);
+        }
+
+        .hours-row:last-child {
+            border-bottom: none;
+        }
+
+        .hours-day {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            min-width: 100px;
+        }
+
+        .hours-times {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            text-align: right;
+            line-height: 1.6;
+        }
+
+        .hours-closed {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--terracotta);
+        }
+
+        .reservations-call-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--cream);
+            background: var(--terracotta);
+            border: none;
+            padding: 1.1rem 3rem;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .reservations-call-btn:hover {
+            background: var(--terracotta-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(160, 82, 45, 0.3);
+        }
+
+        .reservations-call-btn svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background: var(--deep-brown);
+            color: var(--cream);
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5rem 2rem 2rem;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1.2fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-logo-shark {
+            width: 6rem;
+            height: auto;
+            display: block;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+        }
+
+        .footer-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .footer-since {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--gold-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(196, 154, 108, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            border-color: var(--gold);
+            background: rgba(196, 154, 108, 0.1);
+        }
+
+        .footer-social a svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--gold-light);
+        }
+
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-col-title {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            color: rgba(255, 253, 247, 0.7);
+            line-height: 1.6;
+        }
+
+        .footer-contact-item svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 1.5;
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+
+        .footer-map {
+            width: 100%;
+            height: 200px;
+            border: 1px solid rgba(196, 154, 108, 0.2);
+            filter: grayscale(0.3) contrast(1.1);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(196, 154, 108, 0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-copy {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            letter-spacing: 0.5px;
+        }
+
+        .footer-dev {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        .footer-dev a {
+            color: var(--gold-light);
+            transition: color 0.3s ease;
+        }
+
+        .footer-dev a:hover {
+            color: var(--gold);
+        }
+
+        /* ========== SCROLL ANIMATIONS ========== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ========== RESPONSIVE ========== */
+
+        /* Tablet */
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .navbar {
+                padding: 1rem 1.25rem;
+            }
+
+            .navbar.scrolled {
+                padding: 0.6rem 1.25rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                max-width: 600px;
+            }
+
+            .about-image-wrap::before {
+                display: none;
+            }
+
+            .about-text .section-label,
+            .about-text .section-title {
+                text-align: center;
+            }
+
+            .about-text .section-divider {
+                margin: 1.5rem auto 0;
+            }
+
+            .about-description p:first-child::first-letter {
+                font-size: 3rem;
+            }
+
+            .about-year {
+                justify-content: center;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: 220px repeat(4, 180px);
+            }
+
+            .gallery-item:nth-child(1) {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2.5rem;
+            }
+
+            .footer-brand {
+                align-items: center;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+
+            .footer-contact-item {
+                justify-content: center;
+            }
+
+            .footer-bottom {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .footer-inner {
+                padding: 4rem 1.5rem 2rem;
+            }
+
+            .section {
+                padding: 4.5rem 1.25rem;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .navbar {
+                padding: 0.75rem 1rem;
+            }
+
+            .navbar.scrolled {
+                padding: 0.5rem 1rem;
+            }
+
+            .nav-logo {
+                min-height: 44px;
+            }
+
+            .nav-logo-shark {
+                width: 2.6rem;
+            }
+
+            .navbar.scrolled .nav-logo-shark {
+                width: 2.2rem;
+            }
+
+            .nav-logo-text {
+                font-size: 1.1rem;
+            }
+
+            .hero {
+                min-height: 100vh;
+                min-height: 100svh;
+            }
+
+            .hero-content {
+                padding: 0 1.25rem;
+            }
+
+            .hero-est {
+                font-size: 0.7rem;
+                letter-spacing: 3px;
+                margin-bottom: 1rem;
+            }
+
+            .hero-tagline {
+                font-size: 0.85rem;
+                margin-bottom: 2rem;
+                padding: 0 0.5rem;
+            }
+
+            .hero-btn {
+                padding: 1rem 2rem;
+                font-size: 0.75rem;
+                letter-spacing: 2px;
+                min-height: 44px;
+            }
+
+            .hero-scroll {
+                bottom: 1.5rem;
+            }
+
+            .section {
+                padding: 3.5rem 1rem;
+            }
+
+            .section-header {
+                margin-bottom: 2.5rem;
+            }
+
+            .about-image-wrap::before {
+                display: none;
+            }
+
+            .about-description p {
+                font-size: 1.1rem;
+            }
+
+            .menu-categories {
+                gap: 0.5rem;
+                margin-bottom: 2.5rem;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                padding-bottom: 0.5rem;
+                padding-right: 1rem;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+
+            .menu-categories::-webkit-scrollbar {
+                display: none;
+            }
+
+            .menu-cat-btn {
+                flex-shrink: 0;
+                padding: 0.65rem 1.1rem;
+                font-size: 0.65rem;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+
+            .menu-item {
+                padding: 1rem 0;
+            }
+
+            .menu-item-info {
+                padding-right: 1rem;
+            }
+
+            .menu-item-name {
+                font-size: 1rem;
+            }
+
+            .menu-item-desc {
+                font-size: 0.85rem;
+            }
+
+            .menu-item-price {
+                font-size: 0.85rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                gap: 0.5rem;
+            }
+
+            .gallery-item:nth-child(1) {
+                grid-column: span 1;
+            }
+
+            .gallery-item {
+                height: 200px;
+            }
+
+            .reservations-icon {
+                width: 56px;
+                height: 56px;
+                margin-bottom: 1.5rem;
+            }
+
+            .reservations-icon svg {
+                width: 22px;
+                height: 22px;
+            }
+
+            .reservations-text {
+                font-size: 1.05rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .reservations-phone {
+                display: block;
+                margin-bottom: 2rem;
+            }
+
+            .reservations-call-btn {
+                padding: 1rem 2rem;
+                font-size: 0.75rem;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .reservations-hours {
+                margin-top: 2rem;
+                max-width: 100%;
+            }
+
+            .hours-day {
+                min-width: 90px;
+                font-size: 0.9rem;
+            }
+
+            .hours-times {
+                font-size: 1rem;
+            }
+
+            .footer-inner {
+                padding: 3rem 1rem 1.5rem;
+            }
+
+            .footer-top {
+                gap: 2rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .footer-logo-shark {
+                width: 4rem;
+            }
+
+            .footer-map {
+                height: 180px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .mobile-nav a {
+                font-size: 1.5rem;
+                padding: 0.5rem 2rem;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        /* Small phones */
+        @media (max-width: 380px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-est {
+                font-size: 0.6rem;
+                letter-spacing: 2px;
+            }
+
+            .hero-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .nav-logo-text {
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 3rem 0.75rem;
+            }
+
+            .menu-item {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
+            .menu-item-info {
+                padding-right: 0;
+            }
+
+            .reservations-call-btn {
+                padding: 1rem 1.5rem;
+            }
+        }
+
+        /* Disable parallax on touch devices */
+        @media (hover: none) {
+            .hero-bg {
+                background-attachment: scroll;
+            }
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            .hero-est, .hero-title, .hero-subtitle, .hero-divider,
+            .hero-tagline, .hero-btn, .hero-scroll, .nav-logo-shark {
+                opacity: 1;
+                transform: none;
+                animation: none;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+
+        /* ========== COOKIE BANNER ========== */
+        .cookie-banner {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(120%);
+            z-index: 10000;
+            background: var(--deep-brown);
+            border: 1px solid rgba(196, 154, 108, 0.15);
+            padding: 1.25rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            max-width: 620px;
+            width: calc(100% - 2rem);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease;
+        }
+
+        .cookie-banner.visible {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .cookie-banner.hidden {
+            transform: translateX(-50%) translateY(120%);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .cookie-text {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.8rem;
+            color: rgba(247, 251, 255, 0.7);
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 0.6rem;
+            flex-shrink: 0;
+        }
+
+        .cookie-btn {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 0.6rem 1.2rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .cookie-btn-accept {
+            background: var(--gold);
+            color: var(--deep-brown);
+        }
+
+        .cookie-btn-accept:hover {
+            background: var(--gold-light);
+        }
+
+        .cookie-btn-reject {
+            background: none;
+            border: 1px solid rgba(196, 154, 108, 0.3);
+            color: var(--gold-light);
+        }
+
+        .cookie-btn-reject:hover {
+            border-color: var(--gold);
+        }
+
+        @media (max-width: 600px) {
+            .cookie-banner {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+                padding: 1.25rem 1.5rem;
+                bottom: 1rem;
+            }
+
+            .cookie-buttons {
+                width: 100%;
+            }
+
+            .cookie-btn {
+                flex: 1;
+                padding: 0.7rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar" id="navbar">
+        <a href="#hero" class="nav-logo">
+            <svg class="nav-logo-shark" viewBox="0 0 160 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Corpo principal azul - forma realista -->
+                <path d="M6 35C6 35 12 26 24 22C36 18 56 15 78 14C94 13 108 16 118 20L126 14L138 4L136 16L132 24L138 28L144 32L134 30L126 28C122 34 112 44 92 50C72 54 48 52 32 48C18 44 10 40 6 35Z" fill="#5B8BA0"/>
+                <!-- Degradê azul mais escuro no topo -->
+                <path d="M24 22C36 18 56 15 78 14C94 13 108 16 118 20L126 14L138 4L136 16L132 24L126 28C122 20 108 16 94 14C78 14 56 15 40 18L24 22Z" fill="#3D6B82"/>
+                <!-- Barriga branca/cinza claro -->
+                <path d="M6 35C10 40 18 44 32 48C48 52 72 54 92 50C96 49 100 47 104 45L100 42C84 48 58 50 38 46C22 42 12 38 8 36Z" fill="#D0DEE8"/>
+                <!-- Linha lateral -->
+                <path d="M30 32C50 30 80 28 110 26" stroke="#4A7A90" stroke-width="0.8" opacity="0.6"/>
+                <!-- Barbatana dorsal grande e afiada -->
+                <path d="M72 14L62 0L84 12Z" fill="#5B8BA0"/>
+                <path d="M72 14L62 0L67 6Z" fill="#3D6B82"/>
+                <!-- Barbatana peitoral -->
+                <path d="M90 34L78 50L96 38Z" fill="#5B8BA0"/>
+                <path d="M90 34L78 50L84 42Z" fill="#4A7A90" opacity="0.5"/>
+                <!-- Barbatana pélvica pequena -->
+                <path d="M106 38L100 48L110 40Z" fill="#5B8BA0" opacity="0.8"/>
+                <!-- Focinho / mandíbula superior -->
+                <path d="M6 35L24 22L14 30Z" fill="#5B8BA0"/>
+                <!-- Mandíbula inferior - boca aberta -->
+                <path d="M6 35L8 36L22 42L32 48L22 42L12 38Z" fill="#6B9BB2"/>
+                <!-- Interior da boca (rosa escuro/vermelho) -->
+                <path d="M8 35L22 24L32 22L28 30L20 36L12 38Z" fill="#8B3A3A" opacity="0.7"/>
+                <!-- DENTES superiores - brancos afiados -->
+                <path d="M12 28L9 36L16 28Z" fill="#EEF4F8"/>
+                <path d="M18 25L14 34L22 25Z" fill="#EEF4F8"/>
+                <path d="M24 23L20 32L28 23Z" fill="#EEF4F8"/>
+                <path d="M30 22L27 30L34 22Z" fill="#EEF4F8"/>
+                <!-- DENTES inferiores -->
+                <path d="M10 37L13 30L16 38Z" fill="#EEF4F8" opacity="0.9"/>
+                <path d="M16 38L19 30L22 39Z" fill="#EEF4F8" opacity="0.9"/>
+                <path d="M22 39L25 31L28 40Z" fill="#EEF4F8" opacity="0.9"/>
+                <!-- Olho - pequeno, escuro, agressivo -->
+                <circle cx="46" cy="24" r="3" fill="#1A2A36"/>
+                <circle cx="46" cy="24" r="1.8" fill="#0D1B2A"/>
+                <circle cx="47" cy="23" r="0.6" fill="#AAC4D4" opacity="0.7"/>
+                <!-- Fendas branquiais (5 linhas como tubarão real) -->
+                <line x1="56" y1="24" x2="54" y2="32" stroke="#3D6B82" stroke-width="1" opacity="0.5"/>
+                <line x1="59" y1="23" x2="57" y2="31" stroke="#3D6B82" stroke-width="1" opacity="0.5"/>
+                <line x1="62" y1="22" x2="60" y2="30" stroke="#3D6B82" stroke-width="1" opacity="0.5"/>
+                <line x1="65" y1="22" x2="63" y2="29" stroke="#3D6B82" stroke-width="1" opacity="0.5"/>
+                <line x1="68" y1="21" x2="66" y2="28" stroke="#3D6B82" stroke-width="1" opacity="0.5"/>
+                <!-- Cauda bifurcada -->
+                <path d="M126 14L138 4L136 16Z" fill="#5B8BA0"/>
+                <path d="M132 24L138 28L144 32L134 30Z" fill="#5B8BA0"/>
+                <path d="M126 14L138 4L132 10Z" fill="#3D6B82" opacity="0.5"/>
+            </svg>
+            <span class="nav-logo-text">O Tubarão</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#reservas" class="nav-cta">Reservar</a></li>
+        </ul>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileNav" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Menu de navegação" aria-hidden="true">
+        <a href="#sobre" onclick="closeMobile()">Sobre</a>
+        <a href="#menu" onclick="closeMobile()">Menu</a>
+        <a href="#galeria" onclick="closeMobile()">Galeria</a>
+        <a href="#reservas" onclick="closeMobile()">Reservar</a>
+        <a href="#contactos" onclick="closeMobile()">Contactos</a>
+    </div>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg" id="heroBg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-vignette"></div>
+        <div class="hero-content">
+            <div class="hero-est">Rua do Sul · Matosinhos</div>
+            <h1 class="hero-title">O Tubarão</h1>
+            <div class="hero-divider"></div>
+            <p class="hero-subtitle">Do mar à mesa, com sabor genuíno</p>
+            <p class="hero-tagline">Peixe fresco grelhado e marisco de qualidade. Ingredientes frescos, porções generosas e a autêntica tradição portuguesa.</p>
+            <a href="#reservas" class="hero-btn">Reservar Mesa</a>
+        </div>
+        <div class="hero-scroll">
+            <span>Explorar</span>
+            <div class="hero-scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ========== ABOUT ========== -->
+    <section class="about section" id="sobre">
+        <div class="about-grid">
+            <div class="about-image-wrap reveal">
+                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1974&auto=format&fit=crop" alt="Interior do restaurante O Tubarão" class="about-image" loading="lazy">
+            </div>
+            <div class="about-text">
+                <span class="section-label reveal">Sobre Nós</span>
+                <h2 class="section-title reveal reveal-delay-1">Autêntica cozinha<br>do mar</h2>
+                <div class="section-divider reveal reveal-delay-2"></div>
+                <div class="about-description reveal reveal-delay-3">
+                    <p>Situado na Rua do Sul, em Matosinhos — onde a tradição e o oceano se encontram. Somos um restaurante dedicado à autêntica comida tradicional portuguesa e aos tesouros do mar.</p>
+                    <p>Peixe fresco grelhado na brasa. Marisco de qualidade excecional. Ingredientes sempre frescos, porções generosas e um ambiente descontraído onde se come com alma.</p>
+                </div>
+                <div class="about-year reveal reveal-delay-4">Rua do Sul, Matosinhos</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== MENU ========== -->
+    <section class="menu section" id="menu">
+        <div class="menu-inner">
+            <div class="section-header">
+                <span class="section-label reveal">Gastronomia</span>
+                <h2 class="section-title light reveal reveal-delay-1">A Nossa Ementa</h2>
+                <div class="section-divider reveal reveal-delay-2"></div>
+            </div>
+
+            <div class="menu-categories reveal reveal-delay-3">
+                <button class="menu-cat-btn active" data-cat="entradas">Entradas</button>
+                <button class="menu-cat-btn" data-cat="peixe">Peixe</button>
+                <button class="menu-cat-btn" data-cat="marisco">Marisco</button>
+                <button class="menu-cat-btn" data-cat="carnes">Carnes</button>
+                <button class="menu-cat-btn" data-cat="sobremesas">Sobremesas</button>
+            </div>
+
+            <!-- Entradas -->
+            <div class="menu-category active" id="cat-entradas">
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Amêijoas à Bulhão Pato</div>
+                        <div class="menu-item-desc">Amêijoas frescas com azeite, alho e coentros</div>
+                    </div>
+                    <div class="menu-item-price">€14,50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Gambas ao Alho</div>
+                        <div class="menu-item-desc">Gambas salteadas com alho, malagueta e azeite virgem</div>
+                    </div>
+                    <div class="menu-item-price">€16,00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Polvo à Lagareiro</div>
+                        <div class="menu-item-desc">Tentáculo de polvo assado com batata a murro</div>
+                    </div>
+                    <div class="menu-item-price">€18,50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Paté de Atum da Casa</div>
+                        <div class="menu-item-desc">Paté artesanal com torradas e azeitonas</div>
+                    </div>
+                    <div class="menu-item-price">€9,00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Salada de Polvo</div>
+                        <div class="menu-item-desc">Polvo tenro com cebola, pimento e coentros</div>
+                    </div>
+                    <div class="menu-item-price">€15,00</div>
+                </div>
+            </div>
+
+            <!-- Peixe -->
+            <div class="menu-category" id="cat-peixe">
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Robalo Grelhado</div>
+                        <div class="menu-item-desc">Robalo fresco grelhado com legumes da época</div>
+                    </div>
+                    <div class="menu-item-price">€22,00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Bacalhau à Tubarão</div>
+                        <div class="menu-item-desc">Lombo de bacalhau confitado com broa e grelos</div>
+                    </div>
+                    <div class="menu-item-price">€19,50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Dourada à Portuguesa</div>
+                        <div class="menu-item-desc">Dourada no forno com batata, tomate e cebola</div>
+                    </div>
+                    <div class="menu-item-price">€20,00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Linguado Grelhado</div>
+                        <div class="menu-item-desc">Linguado fresco com manteiga de limão e alcaparras</div>
+                    </div>
+                    <div class="menu-item-price">€24,00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Caldeirada de Peixe</div>
+                        <div class="menu-item-desc">Caldeirada tradicional com peixe variado do dia</div>
+                    </div>
+                    <div class="menu-item-price">€25,00</div>
+                </div>
+            </div>
+
+            <!-- Marisco -->
+            <div class="menu-category" id="cat-marisco">
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Lagosta Grelhada</div>
+                        <div class="menu-item-desc">Lagosta fresca grelhada com manteiga de ervas</div>
+                    </div>
+                    <div class="menu-item-price">Preço/kg</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Arroz de Marisco</div>
+                        <div class="menu-item-desc">Arroz cremoso com camarão, amêijoa e lagostins</div>
+                    </div>
+                    <div class="menu-item-price">€28,00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Camarão Tigre Grelhado</div>
+                        <div class="menu-item-desc">Camarão tigre com alho e molho de manteiga</div>
+                    </div>
+                    <div class="menu-item-price">€26,00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Percebes</div>
+                        <div class="menu-item-desc">Percebes frescos cozidos com sal marinho</div>
+                    </div>
+                    <div class="menu-item-price">Preço/kg</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Sapateira Recheada</div>
+                        <div class="menu-item-desc">Sapateira preparada com o seu recheio tradicional</div>
+                    </div>
+                    <div class="menu-item-price">€22,00</div>
+                </div>
+            </div>
+
+            <!-- Carnes -->
+            <div class="menu-category" id="cat-carnes">
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Bife da Vazia</div>
+                        <div class="menu-item-desc">Bife de novilho com molho de cogumelos e batata frita</div>
+                    </div>
+                    <div class="menu-item-price">€19,00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Secretos de Porco Ibérico</div>
+                        <div class="menu-item-desc">Com migas de espargos e batata doce assada</div>
+                    </div>
+                    <div class="menu-item-price">€17,50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Picanha na Pedra</div>
+                        <div class="menu-item-desc">Servida na pedra com arroz e feijão preto</div>
+                    </div>
+                    <div class="menu-item-price">€21,00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Costeletas de Borrego</div>
+                        <div class="menu-item-desc">Grelhadas com ervas aromáticas e batata assada</div>
+                    </div>
+                    <div class="menu-item-price">€18,50</div>
+                </div>
+            </div>
+
+            <!-- Sobremesas -->
+            <div class="menu-category" id="cat-sobremesas">
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Pudim Abade de Priscos</div>
+                        <div class="menu-item-desc">Receita conventual com toucinho e caramelo</div>
+                    </div>
+                    <div class="menu-item-price">€7,00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Mousse de Chocolate</div>
+                        <div class="menu-item-desc">Chocolate negro 70% com raspas de laranja</div>
+                    </div>
+                    <div class="menu-item-price">€6,50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Leite-Creme Queimado</div>
+                        <div class="menu-item-desc">Leite-creme tradicional com crosta caramelizada</div>
+                    </div>
+                    <div class="menu-item-price">€6,00</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Tarte de Amêndoa</div>
+                        <div class="menu-item-desc">Tarte artesanal com amêndoa do Algarve e gelado</div>
+                    </div>
+                    <div class="menu-item-price">€7,50</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Fruta da Época</div>
+                        <div class="menu-item-desc">Seleção de frutas frescas da estação</div>
+                    </div>
+                    <div class="menu-item-price">€4,50</div>
+                </div>
+            </div>
+
+            <p class="menu-note reveal">Todos os nossos pratos são confecionados com produtos frescos do dia.<br>Preços sujeitos a alteração. IVA incluído.</p>
+        </div>
+    </section>
+
+    <!-- ========== GALLERY ========== -->
+    <section class="gallery section" id="galeria">
+        <div class="section-header">
+            <span class="section-label reveal">Momentos</span>
+            <h2 class="section-title reveal reveal-delay-1">A Nossa Galeria</h2>
+            <div class="section-divider reveal reveal-delay-2"></div>
+        </div>
+
+        <div class="gallery-grid reveal reveal-delay-3">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=1971&auto=format&fit=crop" alt="Marisco fresco" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1579631542720-3a87824fff86?q=80&w=1000&auto=format&fit=crop" alt="Prato de peixe grelhado" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?q=80&w=1000&auto=format&fit=crop" alt="Arroz de marisco" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1000&auto=format&fit=crop" alt="Mesa preparada" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1000&auto=format&fit=crop" alt="Ambiente do restaurante" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1000&auto=format&fit=crop" alt="Interior rústico" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1535140728325-a4d3707eee61?q=80&w=1000&auto=format&fit=crop" alt="Camarão grelhado" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1485921325833-c519f76c4927?q=80&w=1000&auto=format&fit=crop" alt="Sobremesa artesanal" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1000&auto=format&fit=crop" alt="Peixe fresco do dia" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== RESERVATIONS ========== -->
+    <section class="reservations section" id="reservas">
+        <div class="reservations-inner">
+            <div class="reservations-icon reveal">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                </svg>
+            </div>
+            <span class="section-label reveal reveal-delay-1">Reservas</span>
+            <h2 class="section-title reveal reveal-delay-2">Reserve a Sua Mesa</h2>
+            <div class="section-divider reveal reveal-delay-2"></div>
+            <p class="reservations-text reveal reveal-delay-3">Para garantir a melhor experiência, recomendamos que reserve a sua mesa com antecedência. Ligue-nos diretamente, teremos todo o gosto em recebê-lo.</p>
+            <a href="tel:+351911060939" class="reservations-phone reveal reveal-delay-3">911 060 939</a>
+            <div class="reveal reveal-delay-4">
+                <a href="tel:+351911060939" class="reservations-call-btn">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                    </svg>
+                    Ligar Agora
+                </a>
+            </div>
+            <div class="reservations-hours reveal reveal-delay-4">
+                <div class="hours-title">Horário</div>
+                <div class="hours-row">
+                    <div class="hours-day">Segunda a Sábado</div>
+                    <div class="hours-times">12:00 — 16:00<br>19:00 — 23:00</div>
+                </div>
+                <div class="hours-row">
+                    <div class="hours-day">Domingo</div>
+                    <div class="hours-times">12:00 — 16:00</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer" id="contactos">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <svg class="footer-logo-shark" viewBox="0 0 160 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 35C6 35 12 26 24 22C36 18 56 15 78 14C94 13 108 16 118 20L126 14L138 4L136 16L132 24L138 28L144 32L134 30L126 28C122 34 112 44 92 50C72 54 48 52 32 48C18 44 10 40 6 35Z" fill="#5B8BA0"/>
+                        <path d="M24 22C36 18 56 15 78 14C94 13 108 16 118 20L126 14L138 4L136 16L132 24L126 28C122 20 108 16 94 14C78 14 56 15 40 18L24 22Z" fill="#3D6B82"/>
+                        <path d="M6 35C10 40 18 44 32 48C48 52 72 54 92 50C96 49 100 47 104 45L100 42C84 48 58 50 38 46C22 42 12 38 8 36Z" fill="#D0DEE8"/>
+                        <path d="M30 32C50 30 80 28 110 26" stroke="#4A7A90" stroke-width="0.8" opacity="0.6"/>
+                        <path d="M72 14L62 0L84 12Z" fill="#5B8BA0"/>
+                        <path d="M72 14L62 0L67 6Z" fill="#3D6B82"/>
+                        <path d="M90 34L78 50L96 38Z" fill="#5B8BA0"/>
+                        <path d="M90 34L78 50L84 42Z" fill="#4A7A90" opacity="0.5"/>
+                        <path d="M106 38L100 48L110 40Z" fill="#5B8BA0" opacity="0.8"/>
+                        <path d="M6 35L24 22L14 30Z" fill="#5B8BA0"/>
+                        <path d="M6 35L8 36L22 42L32 48L22 42L12 38Z" fill="#6B9BB2"/>
+                        <path d="M8 35L22 24L32 22L28 30L20 36L12 38Z" fill="#8B3A3A" opacity="0.7"/>
+                        <path d="M12 28L9 36L16 28Z" fill="#EEF4F8"/>
+                        <path d="M18 25L14 34L22 25Z" fill="#EEF4F8"/>
+                        <path d="M24 23L20 32L28 23Z" fill="#EEF4F8"/>
+                        <path d="M30 22L27 30L34 22Z" fill="#EEF4F8"/>
+                        <path d="M10 37L13 30L16 38Z" fill="#EEF4F8" opacity="0.9"/>
+                        <path d="M16 38L19 30L22 39Z" fill="#EEF4F8" opacity="0.9"/>
+                        <path d="M22 39L25 31L28 40Z" fill="#EEF4F8" opacity="0.9"/>
+                        <circle cx="46" cy="24" r="3" fill="#1A2A36"/>
+                        <circle cx="46" cy="24" r="1.8" fill="#0D1B2A"/>
+                        <circle cx="47" cy="23" r="0.6" fill="#AAC4D4" opacity="0.7"/>
+                        <line x1="56" y1="24" x2="54" y2="32" stroke="#3D6B82" stroke-width="1" opacity="0.5"/>
+                        <line x1="59" y1="23" x2="57" y2="31" stroke="#3D6B82" stroke-width="1" opacity="0.5"/>
+                        <line x1="62" y1="22" x2="60" y2="30" stroke="#3D6B82" stroke-width="1" opacity="0.5"/>
+                        <line x1="65" y1="22" x2="63" y2="29" stroke="#3D6B82" stroke-width="1" opacity="0.5"/>
+                        <line x1="68" y1="21" x2="66" y2="28" stroke="#3D6B82" stroke-width="1" opacity="0.5"/>
+                        <path d="M126 14L138 4L136 16Z" fill="#5B8BA0"/>
+                        <path d="M132 24L138 28L144 32L134 30Z" fill="#5B8BA0"/>
+                        <path d="M126 14L138 4L132 10Z" fill="#3D6B82" opacity="0.5"/>
+                    </svg>
+                    <div class="footer-name">O Tubarão</div>
+                    <div class="footer-since">Peixe Fresco & Marisco</div>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/pages/Restaurante%20%22O%20Tubar%C3%A3o%22/256011931108196/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/restaurante_o_tubarao/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="https://www.tripadvisor.pt/Restaurant_Review-g652092-d3211248-Reviews-TUBARAO-Matosinhos_Porto_District_Northern_Portugal.html" target="_blank" rel="noopener noreferrer" aria-label="TripAdvisor">
+                            <svg viewBox="0 0 24 24"><path d="M12.006 4.295c-2.67 0-5.338.784-7.645 2.353H0l1.963 2.135a5.997 5.997 0 004.04 10.43 5.976 5.976 0 004.015-1.56L12.006 20l1.988-2.347a5.977 5.977 0 004.015 1.56 5.997 5.997 0 004.04-10.43L24 6.648h-4.35a15.66 15.66 0 00-7.644-2.353zM6.003 17.208a3.994 3.994 0 110-7.99 3.994 3.994 0 010 7.99zm11.994 0a3.994 3.994 0 110-7.99 3.994 3.994 0 010 7.99zM6.003 11.221a1.998 1.998 0 100 3.996 1.998 1.998 0 000-3.996zm11.994 0a1.998 1.998 0 100 3.996 1.998 1.998 0 000-3.996z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <div class="footer-col-title">Contactos</div>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <span>Rua do Sul, 65<br>4450-292 Matosinhos<br>Portugal</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                        <a href="tel:+351911060939">911 060 939</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <a href="mailto:restaurantetubarao@gmail.com">restaurantetubarao@gmail.com</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <div class="footer-col-title">Localização</div>
+                    <iframe class="footer-map" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Restaurante+O+Tubar%C3%A3o,+Rua+do+Sul+65,+4450-292+Matosinhos,+Portugal&zoom=16" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização O Tubarão"></iframe>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copy">&copy; 2026 O Tubarão — Todos os direitos reservados</div>
+                <div class="footer-dev">Developed by <a href="https://www.agbcorporate.pt" target="_blank" rel="noopener noreferrer">AGB</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== COOKIE BANNER ========== -->
+    <div class="cookie-banner" id="cookieBanner">
+        <p class="cookie-text">Utilizamos cookies para melhorar a sua experiência no nosso site.</p>
+        <div class="cookie-buttons">
+            <button class="cookie-btn cookie-btn-reject" onclick="rejectCookies()">Recusar</button>
+            <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Aceitar</button>
+        </div>
+    </div>
+
+    <!-- ========== SCRIPTS ========== -->
+    <script>
+        // === Navbar Scroll ===
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            const scroll = window.pageYOffset;
+            if (scroll > 80) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }, { passive: true });
+
+        // === Mobile Menu ===
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mobileNav.classList.toggle('open');
+            const isOpen = mobileNav.classList.contains('open');
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+            menuToggle.setAttribute('aria-expanded', isOpen);
+            mobileNav.setAttribute('aria-hidden', !isOpen);
+        });
+
+        function closeMobile() {
+            menuToggle.classList.remove('active');
+            mobileNav.classList.remove('open');
+            document.body.style.overflow = '';
+            menuToggle.setAttribute('aria-expanded', 'false');
+            mobileNav.setAttribute('aria-hidden', 'true');
+        }
+
+        // Reset mobile menu on resize to desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 900 && mobileNav.classList.contains('open')) {
+                closeMobile();
+            }
+        });
+
+        // === Parallax Hero (disabled on touch/mobile) ===
+        const heroBg = document.getElementById('heroBg');
+        const isTouchDevice = window.matchMedia('(hover: none)').matches;
+
+        if (!isTouchDevice) {
+            window.addEventListener('scroll', () => {
+                const scroll = window.pageYOffset;
+                if (scroll < window.innerHeight) {
+                    heroBg.style.transform = `translateY(${scroll * 0.4}px)`;
+                }
+            }, { passive: true });
+        }
+
+        // === Menu Category Tabs ===
+        const catBtns = document.querySelectorAll('.menu-cat-btn');
+        const catSections = document.querySelectorAll('.menu-category');
+
+        catBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                catBtns.forEach(b => b.classList.remove('active'));
+                catSections.forEach(s => s.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById('cat-' + btn.dataset.cat).classList.add('active');
+            });
+        });
+
+        // === Scroll Reveal ===
+        const reveals = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        reveals.forEach(el => revealObserver.observe(el));
+
+        // === Smooth Scroll for anchor links ===
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+        // === Cookie Banner ===
+        const cookieBanner = document.getElementById('cookieBanner');
+        if (!localStorage.getItem('cookieConsent')) {
+            setTimeout(() => cookieBanner.classList.add('visible'), 1500);
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            cookieBanner.classList.remove('visible');
+            cookieBanner.classList.add('hidden');
+        }
+
+        function rejectCookies() {
+            localStorage.setItem('cookieConsent', 'rejected');
+            cookieBanner.classList.remove('visible');
+            cookieBanner.classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
